@@ -1,5 +1,5 @@
-import { Button } from "react-bootstrap";
 import ItemCount from "./ItemCount";
+import { Card } from "react-bootstrap";
 
 const ItemDetail = ({ item }) => {
     const initial = 1
@@ -7,13 +7,14 @@ const ItemDetail = ({ item }) => {
     
     return (
       <div>
-        <h3>ItemDetail</h3>
+        <Card style={{ width: '18rem' }}>
         <h3>{item.nombre}</h3>
         <p>{item.categoria}</p>
         <img src={`${item.img}`} alt={`${item.img}`}></img>
-        <Button variant="dark">Agregar al carrito</Button>
         <ItemCount initial={initial} stock={stock} />
+        </Card>
       </div>
+      
     );
   };
   export default ItemDetail;

@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link} from 'react-router-dom'
 import { Card, Button } from "react-bootstrap";
 
 function Item( {prod} ) {
@@ -12,7 +13,7 @@ function Item( {prod} ) {
                 <Card.Text>
                 $ {`${prod.precio}`}
                 </Card.Text>
-                <Button variant="dark">Agregar al carrito</Button>
+                <Link to={`/detalle/${prod.id}`}><Button variant="dark">Detalle del producto</Button></Link>
                 </Card.Body>
             </Card>            
         </div>
