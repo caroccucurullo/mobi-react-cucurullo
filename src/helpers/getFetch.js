@@ -16,7 +16,7 @@ const productos = [{
     "material":"Hierro, terciopelo", 
     "medidas":"45 x 45", 
     "precio":10000,
-    "cantidad":1
+    "stock":15
 },
 
 {
@@ -27,7 +27,7 @@ const productos = [{
     "material":"Madera, pana", 
     "medidas":"45 x 40", 
     "precio":9000,
-    "cantidad":1
+    "stock":10
 },
 
 {
@@ -38,7 +38,7 @@ const productos = [{
     "material":"Madera, terciopelo", 
     "medidas":"45 x 40", 
     "precio":11000,
-    "cantidad":1
+    "stock":13
 },
 
 {
@@ -49,7 +49,7 @@ const productos = [{
     "material":"Madera, chenille", 
     "medidas":"200 x 90", 
     "precio":100000,
-    "cantidad":1
+    "stock":9
 },
 
 {
@@ -60,7 +60,7 @@ const productos = [{
     "material":"Madera, terciopelo", 
     "medidas":"170 x 70", 
     "precio":80000,
-    "cantidad":1
+    "stock":18
 },
 
 {
@@ -71,7 +71,7 @@ const productos = [{
     "material":"Madera, lino", 
     "medidas":"160 x 70", 
     "precio":70000,
-    "cantidad":1
+    "stock":8
 },
 
 {
@@ -82,7 +82,7 @@ const productos = [{
     "material":"Madera, pana", 
     "medidas":"70 x 70", 
     "precio":45000,
-    "cantidad":1
+    "stock":7
 },
 
 {
@@ -93,7 +93,7 @@ const productos = [{
     "material":"Madera, chenille", 
     "medidas":"60 x 70", 
     "precio":48000,
-    "cantidad":1
+    "stock":14
 },
 
 {
@@ -104,7 +104,7 @@ const productos = [{
     "material":"Madera, lino", 
     "medidas":"60 x 60", 
     "precio":35000,
-    "cantidad":1
+    "stock":11
 }];
 
 export const getFetch = new Promise ((resolve) => {

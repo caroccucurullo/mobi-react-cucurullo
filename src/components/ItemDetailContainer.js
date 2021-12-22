@@ -8,11 +8,7 @@ const ItemDetailContainer = () => {
   console.log("item", item);
 
   const {id} = useParams()
-/* 
-  useEffect(() => {
-    getFetch.then((res) => setItem(res)).catch((err) => console.log(err));
-  });
- */
+  
   useEffect(() => {
     if (id) {
         getFetch

@@ -23,15 +23,6 @@ function ItemListContainer ( { greeting } ) {
     }
 }, [idCategoria])  
 
-
-  /* useEffect(() => {
-    getFetch
-    .then(resp => setProductos(resp))    
-    .catch(err => console.log(err))    
-    .finally(()=> setLoading(false))
-    
-  },[]) */
-
     return (
         <div>
             { greeting }
