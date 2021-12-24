@@ -2,16 +2,23 @@ import React, { useState } from 'react';
 import ItemCount from "./ItemCount";
 import { Link} from 'react-router-dom'
 import { Card } from "react-bootstrap";
+import { useCartContext } from './CartContext';
+
 
 const ItemDetail = ({ item }) => {
     const [goCart, setGoCart] = useState(false);
 
+    const {cartList ,agregarAlCarrito}= useCartContext()
+
     const onAdd = (count) => {
       console.log(count);
       setGoCart(true);
+      agregarAlCarrito( {...item, cantidad:count} ) 
   };
 
     const initial = 1
+
+    console.log(cartList);  
      
     return (
       <div>
