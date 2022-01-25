@@ -1,16 +1,15 @@
 import { Link} from 'react-router-dom'
 import { Navbar, Container, Nav} from "react-bootstrap";
-import CartWidget from "./CartWidget";
-import logo from '../img/logoMobiBlanco.svg';
+import CartWidget from "../CartWidget/CartWidget";
 
 const NavBar = () => {
     return (
-    <div>
+
       <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
         <Container>
         <Navbar.Brand><Link to='/'>
           <img
-              src= {logo}
+              src= {'https://firebasestorage.googleapis.com/v0/b/mobi-react-cucurullo.appspot.com/o/logoMobiBlanco.svg?alt=media&token=eec2e857-bab8-4801-95b8-e1e89671569b'}
               className="d-inline-block align-top"
               alt="MOBI logo"
               />
@@ -25,12 +24,10 @@ const NavBar = () => {
             <Nav.Link><Link to='/categoria/MÁS VENDIDO'>MÁS VENDIDOS</Link></Nav.Link>
             </Nav>
           </Navbar.Collapse>
-        
+          <Link to="/cart" ><CartWidget/></Link> 
         </Container>
-        
-        <Link to="/cart" ><CartWidget/></Link> 
       </Navbar>
-    </div>
+    
     )
 }
 export default NavBar;

@@ -1,5 +1,5 @@
 //import { Table, Container, Row, Col, Button } from 'react-bootstrap';
-import { useCartContext } from './CartContext';
+import { useCartContext } from '../CartContext/CartContext';
 //import { Link } from 'react-router-dom';
 import {  addDoc, collection, doc, getFirestore, Timestamp, updateDoc, writeBatch } from "firebase/firestore"
 import { useState } from "react"

@@ -1,5 +1,5 @@
 import { Button } from "react-bootstrap";
-import { useCartContext } from './CartContext';
+import { useCartContext } from '../CartContext/CartContext';
 
 function CartWidget() {
     const { unidades } = useCartContext();

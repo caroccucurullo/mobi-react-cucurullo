@@ -1,4 +1,4 @@
-import { useState } from 'react'
+/* import { useState } from 'react'
 
 export const useCounter = (initialState) => {
     const [counter, setCounter] = useState(initialState)
@@ -12,4 +12,4 @@ export const useCounter = (initialState) => {
         setCounter(prev => prev - 1)
     }
     
-    return {counter,increment,decrement,reset}}
+    return {counter,increment,decrement,reset}} */

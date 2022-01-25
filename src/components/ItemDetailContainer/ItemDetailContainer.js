@@ -1,12 +1,12 @@
 import { useState, useEffect } from "react";
 import {useParams} from 'react-router-dom'
-import { getFetch } from "../helpers/getFetch";
-import ItemDetail from "./ItemDetail";
+import ItemDetail from "../ItemDetail/ItemDetail";
 import { collection, doc, getDoc, getFirestore } from 'firebase/firestore'
+import Loading from '../Loading/Loading'
 
 const ItemDetailContainer = () => {
   const [loading, setLoading] = useState(true)
-  const [item, setProductos] = useState([]);
+  const [item, setItems] = useState([]);
   console.log("item", item);
 
   const {id} = useParams()
@@ -20,7 +20,7 @@ const ItemDetailContainer = () => {
     const db = getFirestore()
             const queryDb = doc(db, 'items', id)
             getDoc(queryDb)
-            .then(resp => setProductos( { id: resp.id, ...resp.data() } ))
+            .then(resp => setItems( { id: resp.id, ...resp.data() } ))
             .catch(err => console.log(err))
             .finally(()=>setLoading(false))
 
@@ -28,8 +28,8 @@ const ItemDetailContainer = () => {
 
   return (
     <>
-    {loading ? 
-      <h2>Cargando...</h2>
+    {loading ? <Loading />
+      
   :
 
     <div>

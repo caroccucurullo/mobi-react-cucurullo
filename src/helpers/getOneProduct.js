@@ -1,4 +1,4 @@
-import banquetaAzul from "../img/shop/banquetaAzul.png";
+/* import banquetaAzul from "../img/shop/banquetaAzul.png";
 
 const oneProduct = {
     "id":1,
@@ -18,4 +18,4 @@ const oneProduct = {
     }, 3000);
   });
   
-  export default getOneProduct;
+  export default getOneProduct; */

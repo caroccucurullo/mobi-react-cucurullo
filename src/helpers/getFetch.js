@@ -1,4 +1,4 @@
-import banquetaAzul from "../img/shop/banquetaAzul.png";
+/* import banquetaAzul from "../img/shop/banquetaAzul.png";
 import banquetaVerdeAgua from "../img/shop/banquetaVerdeAgua.png";
 import banquetaVerdeIngles from "../img/shop/banquetaVerdeIngles.png";
 import sillonAmarilloMaiz from "../img/shop/sillonAmarilloMaiz.png";
@@ -111,4 +111,4 @@ export const getFetch = new Promise ((resolve) => {
     setTimeout(() => {
         resolve(productos)
     }, 2000)
-})
+}) */
