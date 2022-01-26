@@ -1,98 +1,13 @@
-//import { Table, Container, Row, Col, Button } from 'react-bootstrap';
+import { Table, Container, Row, Col } from 'react-bootstrap';
 import { useCartContext } from '../CartContext/CartContext';
-//import { Link } from 'react-router-dom';
-import {  addDoc, collection, doc, getFirestore, Timestamp, updateDoc, writeBatch } from "firebase/firestore"
-import { useState } from "react"
-
+import { Link } from 'react-router-dom';
+import  ButtonCustom from '../ButtonCustom/ButtonCustom';
 
 
 const Cart = () => {
   
-  const [idOrder, setIdOrder] = useState('')
+  const { deleteItem, deleteCart, total, cartList } = useCartContext();
   
-  const [dataForm, setDataForm] = useState({
-    name:"", email:"", phone:""
-  })
-  
-  const { borrarItem, borrarCarrito, total, cartList } = useCartContext();
-  
-  const handleChange = (e) => {
-    setDataForm({
-        ...dataForm,
-        [e.target.name]: e.target.value
-      })
-  }
-  console.log(dataForm)
-
-  
-  const generarOrden = (e) =>{
-    e.preventDefault()    
-    // Nuevo objeto    
-    let orden = {}
-    orden.date = Timestamp.fromDate(new Date())
-    orden.buyer = dataForm
-    orden.total = total();
-    orden.items = cartList.map(cartItem => {
-        const id = cartItem.id;
-        const nombre = cartItem.nombre;
-        const precio = cartItem.precio * cartItem.cantidad;
-        
-        return {id, nombre, precio}   
-    })
-
-    // Generar la orden 
-    const db = getFirestore()
-    const ordenColeccion = collection(db, 'orders')
-    addDoc(ordenColeccion, orden)
-    .then(resp => setIdOrder(resp.id))
-    .catch(err => console.log(err))
-    .finally(()=> {
-      borrarCarrito()
-      setDataForm({
-          name:"", email:"", phone:""
-      })
-  })
-
-  }
-
-  return (
-      <div>
-          {idOrder.length !== 0 && idOrder}
-          {  cartList.map(prod=> <li>{prod.nombre}   {prod.cantidad}</li>) }
-          <form 
-              onSubmit={generarOrden} 
-              onChange={handleChange} 
-          >
-            <input 
-                    type='text' 
-                    name='name' 
-                    placeholder='name' 
-                    value={dataForm.name}
-                /><br />
-                <input 
-                    type='text' 
-                    name='phone'
-                    placeholder='tel' 
-                    value={dataForm.phone}
-                /><br/>
-                <input 
-                    type='email' 
-                    name='email'
-                    placeholder='email' 
-                    value={dataForm.email}
-                /><br/>
-
-
-            <button>Generar Orden</button>
-          </form>
-            <button onClick={borrarCarrito} >Vaciar Carrito</button>
-
-        </div>
-    )
-}
-/* 
-
-
   if (total() === 0) {
     return (
       <Container className="mt-5 mb-5">
@@ -116,12 +31,12 @@ const Cart = () => {
           <Table striped bordered hover responsive>
             <thead>
               <tr>
-                <th></th>
+                <th>Producto</th>
                 <th>Nombre</th>
                 <th>Precio</th>
                 <th>Cantidad</th>
                 <th>Total</th>
-                <th></th>
+                <th>Eliminar</th>
               </tr>
             </thead>
             <tbody>
@@ -132,11 +47,10 @@ const Cart = () => {
                   </td>
                   <td>{c.nombre}</td>
                   <td>{c.precio}</td>
-                  <td>{c.cantidad}</td>
-                  <td>{c.precio * c.cantidad}</td>
+                  <td>{c.quantity}</td>
+                  <td>$ {c.precio * c.quantity}</td>
                   <td>
-                    <Button onClick={() => borrarItem(c.id)}>
-                     Eliminar</Button>
+                    <ButtonCustom text = 'Eliminar' onClick={() => deleteItem (c.id)} />
                   </td>
                 </tr>
               ))}
@@ -147,10 +61,22 @@ const Cart = () => {
           <Row>
             <Col className="d-flex flex-row justify-content-end mb-5">
               <h4>Total ${total()}.-</h4>
-              <button onClick={borrarCarrito}>
-                Limpiar carrito
-              </button>
+              
+                
+              
             </Col>
+            
+          </Row>
+          <Row>
+          <Col className="d-flex flex-row mb-5">
+          <Link to="/buyerForm">
+                                                <ButtonCustom text='Finalizar compra' />
+                                            </Link>
+                                            <Link to="/">
+                                                <ButtonCustom text='Continuar comprando' />
+                                            </Link>
+              <ButtonCustom text='Vaciar carrito' onClick={deleteCart} />
+              </Col>
           </Row>
         </Container>
         
@@ -158,5 +84,5 @@ const Cart = () => {
     );
   }
 };
- */
+
 export default Cart;

@@ -1,0 +1,16 @@
+.btn-custom {
+    border: 1.5px solid black;
+    border-radius: 50px;
+    color: black;
+    background: none;
+    padding: 8px 20px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.5s;
+  }
+  
+.btn-custom:hover {
+    background: black;
+    border: 1.5px solid black;
+    color: white
+  }

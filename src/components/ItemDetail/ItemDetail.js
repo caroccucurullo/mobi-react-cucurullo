@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import ItemCount from "./ItemCount/ItemCount";
-import { Link} from 'react-router-dom'
+import ItemCount from "../ItemCount/ItemCount";
+import { Link} from 'react-router-dom';
 import { Card } from "react-bootstrap";
 import { useCartContext } from "../CartContext/CartContext";
 
@@ -8,12 +8,12 @@ import { useCartContext } from "../CartContext/CartContext";
 const ItemDetail = ({ item }) => {
     const [goCart, setGoCart] = useState(false);
 
-    const {cartList ,agregarAlCarrito}= useCartContext()
+    const {cartList , addCart}= useCartContext()
 
     const onAdd = (count) => {
       console.log(count);
       setGoCart(true);
-      agregarAlCarrito( {...item, cantidad:count} ) 
+      addCart ( {...item, quantity:count} ) 
   };
 
     const initial = 1
