@@ -5,4 +5,9 @@ import { getFirestoreApp } from './config/getFirestoreApp'
 
 getFirestoreApp()
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(
+    <React.StrictMode>
+      <App />
+    </React.StrictMode>,
+    document.getElementById('root')
+  );

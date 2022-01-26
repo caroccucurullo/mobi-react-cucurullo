@@ -1,19 +1,20 @@
-import { useCartContext } from '../CartContext/CartContext';
+import {useCartContext} from '../../context/CartContext'
 import { Link } from 'react-router-dom';
-import {  addDoc, collection, doc, getFirestore, Timestamp, updateDoc, writeBatch } from "firebase/firestore";
+import { addDoc, collection, getFirestore, Timestamp } from "firebase/firestore";
 import { useState } from "react";
 import  ButtonCustom from '../ButtonCustom/ButtonCustom';
+import './BuyerForm.css'
 
 
 
 const BuyerForm = () => {
 
-    const { deleteCart, total, cartList } = useCartContext();
+    const { deleteCart, total, cartList, addQuantity } = useCartContext();
   
     const [idOrder, setIdOrder] = useState('')
   
     const [dataForm, setDataForm] = useState({
-        name:"", email:"", phone:""
+        name:"", phone:"", email:"", emailConfirm:""
     })
   
     const handleChange = (e) => {
@@ -25,34 +26,75 @@ const BuyerForm = () => {
     const generateOrder = (e) =>{
         e.preventDefault()
     
-    let order = {}
-        order.date = Timestamp.fromDate(new Date())
-        order.buyer = dataForm
-        order.total = total();
-        order.items = cartList.map(cartItem => {
-            const id = cartItem.id;
-            const nombre = cartItem.nombre;
-            const precio = cartItem.precio * cartItem.quantity;
+        let order = {}
+            order.date = Timestamp.fromDate(new Date())
+            order.buyer = dataForm
+            order.total = total();
+            order.totalQuantity = addQuantity()
+            order.items = cartList.map(cartItem => {
+                const id = cartItem.id;
+                const nombre = cartItem.nombre;
+                const quantity = cartItem.quantity;
+                const precio = cartItem.precio * cartItem.quantity;
         
-        return {id, nombre, precio}   
+        return {id, nombre, quantity, precio}   
     })
 
     const db = getFirestore()
-    const orderColection = collection(db, 'orders')
-    addDoc(orderColection, order)
+    const orderCollection = collection(db, 'orders')
+    addDoc(orderCollection, order)
     .then(resp => setIdOrder(resp.id))
     .catch(err => console.log(err))
     .finally(()=> {
       deleteCart()
       setDataForm({
-          name:"", email:"", phone:""
+        name:"", phone:"", email:"", emailConfirm:""
       })
   })
 
   }
 
   return (
-      <div>
+
+    <div className ='container'>
+    <h1>Esta es tu Compra</h1>
+    
+    <form className='form' onSubmit={generateOrder}>
+      <label>Nombre:</label>
+      <input type="text" name="name" placeholder="Nombre"  pattern="[a-zA-ZñÑáéíóú'´ÁÉÍÓÚ ]{2,50}" onChange={handleChange} value={dataForm.name} size="35" required /> 
+            <span className='form-control'>*</span> <br />
+      <label >Telefono:</label>
+      <input type="text" name="phone" placeholder="Telefono" pattern="[0-9]{7,15}" onChange={handleChange} value= {dataForm.phone} size="35" required /> 
+            <span className='form-control'>*</span> <br/>
+      <label>Correo electrónico:</label>
+      <input type="email" name="email" placeholder="Ingrese su correo electronico" onChange={handleChange} value={dataForm.email} size="35" required /> 
+            <span className='form-control'>*</span> <br />
+      <label >Confirmar correo electrónico</label>
+      <input type="email" name="emailConfirm" placeholder="Confirme su  correo electronico" onChange={handleChange}  value={dataForm.emailConfirm} size="35" required />
+            <span className='form-control'>*</span> <br/>
+      
+      <p> * Por favor completar los campos obligatorios</p>      
+       
+     {cartList.length !== 0 & dataForm.name !== "" & dataForm.phone !== "" & dataForm.email !== "" & dataForm.email === dataForm.emailConfirm 
+                  ? <div><ButtonCustom text='Finalizar compra' /></div>
+                  : <></>
+      }
+    </form>
+
+    
+    {idOrder.length !== 0 ? <div className=''> <h3>Gracias por elegirnos! </h3>
+                                <p>Compra realizada con exito. La orden es {idOrder}</p>
+                                <p><Link to="/"> 
+                                     <ButtonCustom text='Realizar otra compra' />
+                                  </Link> 
+                                </p>
+                            </div>
+                         : <Link to="/">
+                                 <ButtonCustom text='Continuar comprando' />
+                           </Link>
+    }
+</div>
+   /*    <div>
           {idOrder.length !== 0 && idOrder}
           {  cartList.map(prod=> <li>{prod.nombre}  {prod.quantity}</li>) }
           <form 
@@ -79,11 +121,11 @@ const BuyerForm = () => {
                 /><br/>
 
 
-            <ButtonCustom text = 'Generar Orden'/>
+            <ButtonCustom text = 'Realizar Compra'/>
           </form>
             <ButtonCustom onClick={deleteCart} text = 'Vaciar Carrito' />
 
-        </div>
+        </div> */
     )
 }
 

@@ -18,14 +18,12 @@ function CartContextProvider({children}) {
 
                 setCartList([...cartList, { ...item, quantity: item.quantity + oldItem}])
 
-                addQuantity(item);
-
             } else {
                 setCartList([...cartList, item])
             }
     }
 
-    const addQuantity = (counter, item) => {
+    /* const addQuantity = (counter, item) => {
         const quantity = [...cartList];
         quantity.forEach((c) => {
         c.id === item.id && (c.quantity += counter);
@@ -33,23 +31,33 @@ function CartContextProvider({children}) {
 
         setCartList(quantity);
     };
+ */
+
+    function addQuantity(){
+        const totalQuantity = cartList.map(prod =>prod.quantity).reduce((a,b)=>a+b, 0)
+        return(
+            totalQuantity
+        )
+    }
 
     const total = () => {
         const totalPrice = cartList.reduce((x, y) => x + y.precio * y.quantity, 0);
         return totalPrice;
     };
 
-  
     const unidades = () => {
         const numbers = cartList.reduce((x, y) => x + y.quantity, 0);
         return numbers;
-    };
+    }; 
 
-
-    const deleteItem = (item) => {
+    function deleteItem(id){
+        const itemRemoved = cartList.filter(i => i.id !== id) 
+        setCartList(itemRemoved)     
+   }
+    /* const deleteItem = (item) => {
         const itemRemoved = cartList.filter((i) => i.id !== item);
         setCartList(itemRemoved);
-    };
+    }; */
 
     function deleteCart() {
             setCartList([])

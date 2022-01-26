@@ -2,23 +2,19 @@ import React, { useState } from 'react';
 import ItemCount from "../ItemCount/ItemCount";
 import { Link} from 'react-router-dom';
 import { Card } from "react-bootstrap";
-import { useCartContext } from "../CartContext/CartContext";
+import { useCartContext } from '../../context/CartContext';
 
 
 const ItemDetail = ({ item }) => {
     const [goCart, setGoCart] = useState(false);
 
-    const {cartList , addCart}= useCartContext()
+    const { addCart }= useCartContext()
 
     const onAdd = (count) => {
-      console.log(count);
       setGoCart(true);
       addCart ( {...item, quantity:count} ) 
   };
-
-    const initial = 1
-
-    console.log(cartList);  
+     
      
     return (
       <div>
@@ -29,7 +25,7 @@ const ItemDetail = ({ item }) => {
         <p>{item.precio}</p>
         <Link to="/">Seguir comprando</Link>
         {!goCart ? (
-                <ItemCount initial={initial} stock={`${item.stock}`}  onAdd={onAdd} />
+                <ItemCount initial={1} stock={`${item.stock}`}  onAdd={onAdd} />
             ) : (
                 <Link to="/cart">Ir al carrito</Link>
             )}
