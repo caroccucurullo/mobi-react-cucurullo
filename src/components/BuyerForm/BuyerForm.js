@@ -4,6 +4,7 @@ import { addDoc, collection, getFirestore, Timestamp } from "firebase/firestore"
 import { useState } from "react";
 import  ButtonCustom from '../ButtonCustom/ButtonCustom';
 import './BuyerForm.css'
+import { Container } from 'react-bootstrap';
 
 
 
@@ -56,76 +57,46 @@ const BuyerForm = () => {
 
   return (
 
-    <div className ='container'>
-    <h1>Esta es tu Compra</h1>
+    <Container className='form'>
+        <h1>Completa el formulario de compra</h1>
     
-    <form className='form' onSubmit={generateOrder}>
-      <label>Nombre:</label>
-      <input type="text" name="name" placeholder="Nombre"  pattern="[a-zA-ZñÑáéíóú'´ÁÉÍÓÚ ]{2,50}" onChange={handleChange} value={dataForm.name} size="35" required /> 
-            <span className='form-control'>*</span> <br />
-      <label >Telefono:</label>
-      <input type="text" name="phone" placeholder="Telefono" pattern="[0-9]{7,15}" onChange={handleChange} value= {dataForm.phone} size="35" required /> 
-            <span className='form-control'>*</span> <br/>
-      <label>Correo electrónico:</label>
-      <input type="email" name="email" placeholder="Ingrese su correo electronico" onChange={handleChange} value={dataForm.email} size="35" required /> 
-            <span className='form-control'>*</span> <br />
-      <label >Confirmar correo electrónico</label>
-      <input type="email" name="emailConfirm" placeholder="Confirme su  correo electronico" onChange={handleChange}  value={dataForm.emailConfirm} size="35" required />
-            <span className='form-control'>*</span> <br/>
-      
-      <p> * Por favor completar los campos obligatorios</p>      
-       
-     {cartList.length !== 0 & dataForm.name !== "" & dataForm.phone !== "" & dataForm.email !== "" & dataForm.email === dataForm.emailConfirm 
-                  ? <div><ButtonCustom text='Finalizar compra' /></div>
-                  : <></>
-      }
-    </form>
+            <form onSubmit={generateOrder}>
+                <label>Nombre:</label>
+                <input type="text" name="name" placeholder="Nombre"  pattern="[a-zA-ZñÑáéíóú'´ÁÉÍÓÚ ]{2,50}" onChange={handleChange} value={dataForm.name} size="35" required /> 
+                        <span className='span'>*</span> <br />
+                <label >Teléfono:</label>
+                <input type="text" name="phone" placeholder="Teléfono" pattern="[0-9]{7,15}" onChange={handleChange} value= {dataForm.phone} size="35" required /> 
+                        <span className='span'>*</span> <br/>
+                <label>Correo electrónico:</label>
+                <input type="email" name="email" placeholder="Ingrese su correo electronico" onChange={handleChange} value={dataForm.email} size="35" required /> 
+                        <span className='span'>*</span> <br />
+                <label >Confirmar correo electrónico</label>
+                <input type="email" name="emailConfirm" placeholder="Confirme su  correo electronico" onChange={handleChange}  value={dataForm.emailConfirm} size="35" required />
+                        <span className='span'>*</span> <br/>
+                
+                <p> * Completa los campos obligatorios</p>      
+                
+                {cartList.length !== 0 & dataForm.name !== "" & dataForm.phone !== "" & dataForm.email !== "" & dataForm.email === dataForm.emailConfirm 
+                            ? <div><ButtonCustom text='Finalizar compra' /></div>
+                            : <></>
+                }
+            </form>
 
     
     {idOrder.length !== 0 ? <div className=''> <h3>Gracias por elegirnos! </h3>
-                                <p>Compra realizada con exito. La orden es {idOrder}</p>
+                                <p>La compra se ha realizado con éxito!</p>
+                                <p>El núemero de orden de tu pedido es: {idOrder}</p>
                                 <p><Link to="/"> 
                                      <ButtonCustom text='Realizar otra compra' />
                                   </Link> 
                                 </p>
                             </div>
                          : <Link to="/">
-                                 <ButtonCustom text='Continuar comprando' />
+                                 <ButtonCustom text='Continuar comprando MOBIs' />
                            </Link>
     }
-</div>
-   /*    <div>
-          {idOrder.length !== 0 && idOrder}
-          {  cartList.map(prod=> <li>{prod.nombre}  {prod.quantity}</li>) }
-          <form 
-              onSubmit={generateOrder} 
-              onChange={handleChange} 
-          >
-            <input 
-                    type='text' 
-                    name='name' 
-                    placeholder='name' 
-                    value={dataForm.name}
-                /><br />
-                <input 
-                    type='text' 
-                    name='phone'
-                    placeholder='tel' 
-                    value={dataForm.phone}
-                /><br/>
-                <input 
-                    type='email' 
-                    name='email'
-                    placeholder='email' 
-                    value={dataForm.email}
-                /><br/>
+    </Container>
 
-
-            <ButtonCustom text = 'Realizar Compra'/>
-          </form>
-            <ButtonCustom onClick={deleteCart} text = 'Vaciar Carrito' />
-
-        </div> */
     )
 }
 

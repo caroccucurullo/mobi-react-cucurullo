@@ -1,0 +1,15 @@
+.cartWidget{
+    display: flex;
+}
+
+.cartWidget:hover {
+  color: rgba(252, 252, 252, 0.74);
+}
+  
+.widgetQuantity{
+    color: rgb(252, 252, 252);
+    font-size: 1rem;
+    font-weight: bold;
+    text-decoration: none;
+}
+  

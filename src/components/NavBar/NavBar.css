@@ -1,0 +1,32 @@
+.navLink {
+    padding: 0 1rem;
+    text-decoration: none;
+    color: rgb(252, 250, 250);  
+}
+
+.navLink:hover {
+    padding: 0 1rem;
+    text-decoration: none;
+    color: rgba(252, 250, 250, 0.493);  
+}
+
+.navbar .nav-link {
+    color: black;
+    margin-right: 20px;
+    transition: 0.2s; 
+}
+
+.navbar-toggler {
+    padding: .10rem .45rem;
+    border: 1px solid black; 
+}
+  
+.navbar-toggler:focus {
+    outline: none;
+    box-shadow: none; 
+}
+  
+.navbar-toggler i.bi-list {
+    color: black;
+    font-size: 1.6rem; 
+}

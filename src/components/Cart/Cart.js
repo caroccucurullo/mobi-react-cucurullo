@@ -24,15 +24,11 @@ function Cart() {
         {cartList.map((c) => (
           <CartItem item={c} /> 
         ))}
-        <tr>
-          <th></th>
-          <td>Cantidad total:</td>
-          <td>{addQuantity()}</td>
-          <td>Precio total:</td>
-          <td>${total()}</td>
-          </tr>
       </tbody>
+          
     </Table>
+        <h4>Cantidad total de productos: {addQuantity()} MOBIs</h4>  
+        <h3>Precio total: $ {total()}</h3>
     </Container>
     
   );

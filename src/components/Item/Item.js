@@ -1,10 +1,10 @@
 import { Link} from 'react-router-dom'
 import { Card, Button } from "react-bootstrap";
+import './Item.css';
 
 function Item( {prod} ) {
     return (
-        <div>
-            key={prod.id}
+        <div key={prod.id}>
             <Card style={{ width: '18rem' }}>
                 <Card.Img variant="top" src={prod.img} />
                 <Card.Body>
@@ -12,7 +12,7 @@ function Item( {prod} ) {
                 <Card.Text>
                 $ {`${prod.precio}`}
                 </Card.Text>
-                <Link to={`/detalle/${prod.id}`}><Button variant="dark">Detalle del producto</Button></Link>
+                <Link to={`/detalle/${prod.id}`}><Button ClassName = 'card__button' variant="dark">Detalle del producto</Button></Link>
                 </Card.Body>
             </Card>            
         </div>

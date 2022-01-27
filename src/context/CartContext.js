@@ -23,16 +23,6 @@ function CartContextProvider({children}) {
             }
     }
 
-    /* const addQuantity = (counter, item) => {
-        const quantity = [...cartList];
-        quantity.forEach((c) => {
-        c.id === item.id && (c.quantity += counter);
-        });
-
-        setCartList(quantity);
-    };
- */
-
     function addQuantity(){
         const totalQuantity = cartList.map(prod =>prod.quantity).reduce((a,b)=>a+b, 0)
         return(
@@ -54,10 +44,6 @@ function CartContextProvider({children}) {
         const itemRemoved = cartList.filter(i => i.id !== id) 
         setCartList(itemRemoved)     
    }
-    /* const deleteItem = (item) => {
-        const itemRemoved = cartList.filter((i) => i.id !== item);
-        setCartList(itemRemoved);
-    }; */
 
     function deleteCart() {
             setCartList([])

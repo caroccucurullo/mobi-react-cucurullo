@@ -4,7 +4,6 @@ import { Link} from 'react-router-dom';
 import { Card } from "react-bootstrap";
 import { useCartContext } from '../../context/CartContext';
 
-
 const ItemDetail = ({ item }) => {
     const [goCart, setGoCart] = useState(false);
 
@@ -14,7 +13,6 @@ const ItemDetail = ({ item }) => {
       setGoCart(true);
       addCart ( {...item, quantity:count} ) 
   };
-     
      
     return (
       <div>

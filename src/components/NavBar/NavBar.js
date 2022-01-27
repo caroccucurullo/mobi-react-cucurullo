@@ -1,6 +1,7 @@
 import { Link} from 'react-router-dom'
 import { Navbar, Container, Nav} from "react-bootstrap";
 import CartWidget from "../CartWidget/CartWidget";
+import './NavBar.css';
 
 const NavBar = () => {
     return (
@@ -18,10 +19,10 @@ const NavBar = () => {
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="me-auto">
             </Nav>
-            <Nav>
-            <Nav.Link><Link to='/categoria/SALE'>SALE</Link></Nav.Link>
-            <Nav.Link><Link to='/categoria/NUEVO'>NUEVOS</Link></Nav.Link>
-            <Nav.Link><Link to='/categoria/MÁS VENDIDO'>MÁS VENDIDOS</Link></Nav.Link>
+            <Nav className="navbar">
+            <Link className='navLink' to='/categoria/SALE'>SALE</Link>
+            <Link className='navLink' to='/categoria/NUEVO'>NUEVOS</Link>
+            <Link className='navLink' to='/categoria/MÁS VENDIDO'>MÁS VENDIDOS</Link>
             </Nav>
           </Navbar.Collapse>
           <Link to="/cart" ><CartWidget/></Link> 
