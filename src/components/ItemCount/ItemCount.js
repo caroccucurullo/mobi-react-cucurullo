@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Button } from "react-bootstrap";
+import { Button, Container } from "react-bootstrap";
 import './ItemCount.css';
 
 const ItemCount = ({ stock, initial, onAdd }) => {
@@ -21,11 +21,11 @@ const ItemCount = ({ stock, initial, onAdd }) => {
 
   return (
     <>
-      <div className="count m-3">
-        <button onClick={quitItem}> - </button>
+      <Container className="count">
+        <Button className= 'm-3' variant="dark" size="sm" onClick={quitItem}> - </Button>
         <h4 className="m-3"> {count} </h4>
-        <button onClick={addItem}> + </button>  
-      </div>
+        <Button className= 'm-3' variant="dark" size="sm"  onClick={addItem}> + </Button>  
+      </Container>
       <Button disable={count === 0} variant="dark" onClick={() => onAdd(count)}>Agregar al carrito</Button>
     </>
   );

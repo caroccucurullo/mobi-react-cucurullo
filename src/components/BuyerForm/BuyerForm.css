@@ -1,6 +1,11 @@
 .form {
-    width: 60%;
-    margin: auto; 
+    width: 70%;
+    margin: auto;
+    margin-top:1rem;
+    padding: 2rem;
+    text-align: center;
+
+
 }
 
 .span{

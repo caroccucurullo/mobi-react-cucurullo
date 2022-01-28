@@ -1,7 +1,7 @@
 import { useCartContext } from '../../context/CartContext';
 import CartItem from '../CartItem/CartItem';
 import { Table, Container } from 'react-bootstrap';
-//import './Cart.css'
+import './Cart.css';
 
 
 function Cart() {
@@ -16,7 +16,7 @@ function Cart() {
           <th>Nombre</th>
           <th>Precio</th>
           <th>Cantidad</th>
-          <th>Total</th>
+          <th>Subtotal</th>
           <th>Eliminar</th>
         </tr>
       </thead>

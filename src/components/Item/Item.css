@@ -1,4 +1,4 @@
-.card__button {
+.card-button {
     border: 1.5px solid #282828;
     height: 2.5rem;
     text-align: center;
@@ -6,7 +6,7 @@
     color: #282828;
     margin-left: 60%; 
 }
-.card__button:hover {
+.card-button:hover {
     background-color: #282828;
     color: whitesmoke;
     cursor: pointer; 

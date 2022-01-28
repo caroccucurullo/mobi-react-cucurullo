@@ -4,7 +4,7 @@ import './ItemList.css';
 
 function ItemList( {products} ) {
     return (
-        <Container className ="grid">
+        <Container className ="grid gap-5">
             { products.map((prod) => <Item prod = {prod} />)  }
         </Container>
 

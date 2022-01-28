@@ -61,18 +61,32 @@ const BuyerForm = () => {
         <h1>Completa el formulario de compra</h1>
     
             <form onSubmit={generateOrder}>
-                <label>Nombre:</label>
-                <input type="text" name="name" placeholder="Nombre"  pattern="[a-zA-ZñÑáéíóú'´ÁÉÍÓÚ ]{2,50}" onChange={handleChange} value={dataForm.name} size="35" required /> 
-                        <span className='span'>*</span> <br />
-                <label >Teléfono:</label>
-                <input type="text" name="phone" placeholder="Teléfono" pattern="[0-9]{7,15}" onChange={handleChange} value= {dataForm.phone} size="35" required /> 
-                        <span className='span'>*</span> <br/>
-                <label>Correo electrónico:</label>
-                <input type="email" name="email" placeholder="Ingrese su correo electronico" onChange={handleChange} value={dataForm.email} size="35" required /> 
-                        <span className='span'>*</span> <br />
-                <label >Confirmar correo electrónico</label>
-                <input type="email" name="emailConfirm" placeholder="Confirme su  correo electronico" onChange={handleChange}  value={dataForm.emailConfirm} size="35" required />
-                        <span className='span'>*</span> <br/>
+                <label>Nombre:</label><br/>
+                <input className="mb-3"
+                    type="text" name="name" placeholder="Nombre"  
+                    pattern="[a-zA-ZñÑáéíóú'´ÁÉÍÓÚ ]{2,50}" 
+                    onChange={handleChange} value={dataForm.name} 
+                    size="35" required /> 
+                <span className='span'>*</span> <br/>
+                <label >Teléfono:</label><br/>
+                <input className="mb-3"
+                    type="text" name="phone" placeholder="Teléfono" 
+                    pattern="[0-9]{7,15}" 
+                    onChange={handleChange} value= {dataForm.phone} 
+                    size="35" required /> 
+                <span className='span'>*</span> <br/>
+                <label>Correo electrónico:</label><br/>
+                <input className="mb-3"
+                    type="email" name="email" placeholder="Ingrese su correo electronico" 
+                    onChange={handleChange} value={dataForm.email} 
+                    size="35" required /> 
+                <span className='span'>*</span> <br/>
+                <label>Confirmar correo electrónico</label><br/>
+                <input className="mb-3"
+                    type="email" name="emailConfirm" placeholder="Confirme su  correo electronico" 
+                    onChange={handleChange}  value={dataForm.emailConfirm} 
+                    size="35" required />
+                <span className='span'>*</span> <br/>
                 
                 <p> * Completa los campos obligatorios</p>      
                 

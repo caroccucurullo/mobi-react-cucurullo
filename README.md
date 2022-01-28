@@ -1,3 +1,37 @@
+# MOBI deco
+
+Este es el repositorio del proyecto final del curso de React JS realizado en Coderhouse en enero del 2022.
+
+## _Demo_
+
+[https://firebasestorage.googleapis.com/v0/b/mobi-react-cucurullo.appspot.com/o/logoMobi.svg?alt=media&token=64db4c51-3d6d-401d-a2a0-f59abe27801d] ()
+
+
+## _Librerias utilizadas_
+| Librería | Versión | Función
+| ------ | ------ |------|
+| React | 17.0.2 | Entorno de trabajo para Front end
+| React-router-dom | 6.1.1 | Permite el enrutado dentro de la aplicación
+| Firebase | 9.6.1 | Solución para la base de datos en tiempo real. Reemplazo de back end
+| Bootstrap | 5.1.3 | Aporta estilos predefinidos
+| React-bootstrap | 2.0.2 | Componentes React que implementan el marco Bootstrap
+
+
+## Instalación React JS
+
+Este proyecto se inició con [Create React App](https://github.com/facebook/create-react-app):
+
+```bash
+  npx create-react-app my-app
+  cd my-app
+  npm install
+```
+
+Aplicación en modo de desarrollo:
+```bash
+  npm start
+```
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
