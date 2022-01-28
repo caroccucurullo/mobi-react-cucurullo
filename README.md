@@ -4,7 +4,7 @@ Este es el repositorio del proyecto final del curso de React JS realizado en Cod
 
 ## _Demo_
 
-[![]https://firebasestorage.googleapis.com/v0/b/mobi-react-cucurullo.appspot.com/o/logoMobi.svg?alt=media&token=64db4c51-3d6d-401d-a2a0-f59abe27801d](https://61f340f4645c5625de2a1904--mobi-deco.netlify.app/)
+[MOBI](https://61f340f4645c5625de2a1904--mobi-deco.netlify.app/)
 
 
 ## _Librerias utilizadas_
